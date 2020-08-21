@@ -17,6 +17,13 @@ pipeline {
                 sh "/home/ubuntu/neo/tools/neo.sh  list-runtimes -h https://hanatrial.ondemand.com -a p2002559018trial -u P2002559018 -p aravind@SAP7717 "
             }
         }
+        stage('CF') { 
+          steps {
+                sh "cf login -a https://api.cf.eu10.hana.ondemand.com  -u azad.ahammed@ivldsp.com -p Ahammed@19 "
+            }
+        }
+        
+        
           stage('Neo undeploy') {
           steps {
                  sh "/home/ubuntu/neo/tools/neo.sh  stop  --host https://hanatrial.ondemand.com --account  p2002559018trial --user P2002559018 -p aravind@SAP7717 --application firstapp"
