@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Push') { 
           steps {
-                sh "cp /var/lib/jenkins/workspace/sap-maven/target/java-tomcat-maven-example.war  /var/lib/tomcat8/webapps/"
+                sh "cp /var/lib/jenkins/workspace/sap-neo-test/target/java-tomcat-maven-example.war  /var/lib/tomcat8/webapps/"
             }
         }
         stage('Neo') { 
@@ -25,7 +25,7 @@ pipeline {
         }
          stage('Neo Deploy') { 
           steps {
-                sh "/home/ubuntu/neo/tools/neo.sh  deploy  --host https://hanatrial.ondemand.com --account  p2002559018trial --user P2002559018 -p aravind@SAP7717 --application firstapp --source  /var/lib/jenkins/workspace/sap-maven/target/java-tomcat-maven-example.war "
+                sh "/home/ubuntu/neo/tools/neo.sh  deploy  --host https://hanatrial.ondemand.com --account  p2002559018trial --user P2002559018 -p aravind@SAP7717 --application firstapp --source  /var/lib/jenkins/workspace/sap-neo-test/target/java-tomcat-maven-example.war "
                 sh "/home/ubuntu/neo/tools/neo.sh  start  --host https://hanatrial.ondemand.com --account  p2002559018trial --user P2002559018 -p aravind@SAP7717 --application firstapp"
           }
         }
